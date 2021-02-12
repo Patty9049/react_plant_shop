@@ -1,21 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Col } from 'react-flexbox-grid';
 
 const ProductsList = ({ products }) => {
   return (
-    <ul>
+    <Col sm={3} md={3} lg={3}>
       {products.map((el) => {
         const { productId, productImage, productName, productPrice } = el;
         return (
-          <li key={productId}>
+          <div key={productId}>
             <img src={productImage} alt={productName} />
             <h4>{productName}</h4>
             <p>{productPrice}</p>
             <button>Add to cart</button>
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </Col>
   );
 };
 

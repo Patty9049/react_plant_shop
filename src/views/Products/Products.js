@@ -1,12 +1,16 @@
 import React from "react";
+import { Grid , Row } from 'react-flexbox-grid';
 import ProductsList from "../../components/ProductsLIst/ProductsList";
+
 
 const Products = () => {
   return (
-    <div>
+    <Grid>
       <h2>Products</h2>
-      <ProductsList />
-    </div>
+      <Row>
+        <ProductsList />
+      </Row>
+    </Grid>
   );
 };
 
