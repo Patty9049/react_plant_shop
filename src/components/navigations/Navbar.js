@@ -1,22 +1,23 @@
 import React from "react";
-import styles from "./Navbar.scss";
 import { routes } from "../../routes/";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
-const Navbar = () => {
+import styles from "./Navbar.module.scss";
+import { setCartOpen } from "../../actions";
+import { connect } from "react-redux";
+const Navbar = ({setCartOpen}) => {
   return (
-    <nav className={styles.component}>
+    <nav className={styles.navigationList__wrapper}>
       <Grid>
-        <Row between="sm md">
+        <Row between="sm">
           <Col xs={12} sm={4} md={4} lg={2}>
-            <Link to={routes.home}>Home</Link>
-            <Link to={routes.products}>Products</Link>
-            <Link>About</Link>
-            <Link>Contact</Link>
+            <NavLink to={routes.home}>Home</NavLink>
+            <NavLink to={routes.products}>Products</NavLink>
+            <NavLink to="#">About</NavLink>
+            <NavLink to="#">Contact</NavLink>
           </Col>
-          <Col end xs={12} sm={4} md={4} lg={2}>
-              <button className={styles.btn}>cart</button>
+          <Col xs={12} sm={4} md={4} lg={2}>
+              <button onClick={setCartOpen}  className={styles.cart__btn}>cart</button>
           </Col>
         </Row>
       </Grid>
@@ -24,11 +25,15 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
-//czy jest potrzebna lista i elementy listy? czy nie wystarczą same linki?
-// NavLink?
+
+const mapDispatchToProps = (dispatch) => ({
+  setCartOpen: () => dispatch(setCartOpen())
+})
+
+
+export default connect(null,mapDispatchToProps) (Navbar);
 //czy układasz:
-// - plan aplikacji?
-// - plan komponentów?
-// - plan pracy nad apką?
-// czy mam przygotować widoki zakladek
+// - plan aplikacji
+// - plan komponentów
+// - plan pracy nad apką
+// przygotować widoki

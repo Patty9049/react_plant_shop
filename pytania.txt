@@ -1,2 +1,0 @@
-skróty: 
-rafce -> tworzy komponent strzalkowy funkcyjny z exportem domyslnym na dole
