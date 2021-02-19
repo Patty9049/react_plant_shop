@@ -15,7 +15,7 @@ const Navbar = ({setCartOpen}) => {
     <nav className={styles.navigationList__wrapper}>
       <Grid>
         <Row between="sm">
-          <Col xs={12} sm={4} md={4} lg={2}>
+          <Col between xs={12} sm={4} md={4} lg={2}>
             <NavLink to={routes.home}>Home</NavLink>
             <NavLink to={routes.products}>Products</NavLink>
             <NavLink to={routes.about}>About</NavLink>
