@@ -28,6 +28,7 @@
 }
 
 .productContBtn {
+
   @include btn;
   margin-bottom: 25px;
   border-radius: 32px;
@@ -37,7 +38,9 @@
   font-weight: normal;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),  6px 6px 10px rgba(0, 0, 0, 0.2);
   color: #313131;
+
   &:hover {
+
     @include hover;
   }
   &:active {

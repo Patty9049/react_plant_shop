@@ -5,6 +5,11 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 import styles from "./Navbar.module.scss";
 import { setCartOpen } from "../../actions";
 import { connect } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
+
+
 const Navbar = ({setCartOpen}) => {
   return (
     <nav className={styles.navigationList__wrapper}>
@@ -13,11 +18,11 @@ const Navbar = ({setCartOpen}) => {
           <Col xs={12} sm={4} md={4} lg={2}>
             <NavLink to={routes.home}>Home</NavLink>
             <NavLink to={routes.products}>Products</NavLink>
-            <NavLink to="#">About</NavLink>
-            <NavLink to="#">Contact</NavLink>
+            <NavLink to={routes.about}>About</NavLink>
+            <NavLink to={routes.contact}>Contact</NavLink>
           </Col>
           <Col xs={12} sm={4} md={4} lg={2}>
-              <button onClick={setCartOpen}  className={styles.cart__btn}>cart</button>
+              <button onClick={setCartOpen} className={styles.cart__btn}><FontAwesomeIcon icon={faShoppingCart}/></button>
           </Col>
         </Row>
       </Grid>
@@ -31,9 +36,5 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
-export default connect(null,mapDispatchToProps) (Navbar);
-//czy układasz:
-// - plan aplikacji
-// - plan komponentów
-// - plan pracy nad apką
-// przygotować widoki
+export default connect( null, mapDispatchToProps)(Navbar);
+

@@ -1,5 +1,5 @@
 export const settings = {
-  shopName: "House Plants",
-  logo: `<i class="fas fa-leaf"></i>`,
+  shopName: "Plant Shop",
+  logo: '<FontAwesomeIcon icon={faLeaf}/>',
   menu: ["cathegories", "articles", "accessories", "about"],
 };
