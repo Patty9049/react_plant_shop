@@ -1,10 +1,15 @@
 import { actionsTypes } from "../actions/actionsTypes";
-import { products } from "../localData/products";
+import { products, homeView } from "../localData/products";
 
 const initialState = {
   products: [...products],
+  views: {
+    home: {
+      imgSrc: homeView.imgSrc,
+    }
+  },
   cart: [],
-  isCartOpen: false
+  isCartOpen: false,
 };
 
 const reducer = (state = initialState, action) => {

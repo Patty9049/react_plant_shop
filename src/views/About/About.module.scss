@@ -1,0 +1,5 @@
+@import "../../styles/mixins.module.scss";
+
+.menuSubtitle {
+  @include subtitle;
+}
