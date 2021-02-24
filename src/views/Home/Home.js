@@ -1,18 +1,21 @@
 import React from "react";
-import { Grid , Row, Col } from 'react-flexbox-grid';
+import { Grid , Row } from 'react-flexbox-grid';
 import { connect } from "react-redux";
 import styles from "./Home.module.scss";
 
 
 const Home = (props) => {
-  console.log('HOME PROPS', props);
   return (
     <Grid>
       <h2 className={styles.menuSubtitle}>Home</h2>
-      <Row sm={3} md={3} lg={3}>
-        <Col>
+      <Row >
+        <div>
           <img className={styles.homeImg} src={props.home.imgSrc} alt="houseplants"/>
-        </Col>
+        </div>
+      </Row>
+      <Row>
+        <h4 className={styles.menuSubtitle}> Lorem, ipsum dolor. </h4>
+        <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima molestiae dolore accusamus ullam fugiat odio iste repellendus architecto unde eius, debitis nostrum exercitationem, voluptatibus tempora doloribus quos. Sequi, facilis aperiam. </p>
       </Row>
     </Grid>
   );

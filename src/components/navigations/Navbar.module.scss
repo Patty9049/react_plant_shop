@@ -1,10 +1,13 @@
 .navigationList__wrapper {
   margin: 20px 0;
 }
-
+NavLink {
+  color: red;
+}
 .cart__btn {
   background-color: white;
   border: none;
+  outline: none;
   font-size: large;
   color: rgb(59, 59, 59);
 }

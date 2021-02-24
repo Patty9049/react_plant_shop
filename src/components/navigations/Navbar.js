@@ -8,8 +8,6 @@ import { connect } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
-
-
 const Navbar = ({setCartOpen}) => {
   return (
     <nav className={styles.navigationList__wrapper}>

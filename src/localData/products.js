@@ -1,7 +1,7 @@
 export const products = [
   {
     productId: 1,
-    productName: "Lemon tree",
+    productName: "Lemon Tree",
     productImage:
       "https://images.unsplash.com/photo-1527614853535-bc948bbb3e5e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     productCategory: "Tree",

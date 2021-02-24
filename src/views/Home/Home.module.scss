@@ -3,10 +3,9 @@
 .homeImg {
 
   @include basicimg;
-  height: 60%;
+  height: 60vh;
 }
 
 .menuSubtitle {
   @include subtitle;
 }
-
