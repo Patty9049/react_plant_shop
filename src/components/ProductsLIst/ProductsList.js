@@ -20,13 +20,13 @@ const ProductsList = ({ products, addProductToCart }) => {
           >
             <div className={styles.productImg__wrapper}>
               <Link to={`/product/${productName}`}>
-              <img
-                src={productImage}
-                alt={productName}
-                className={styles.product__img}
-              />
+                <img
+                  src={productImage}
+                  alt={productName}
+                  className={styles.product__img}
+                />
+                <h2  className={styles.img_hoverNote}>read more</h2>
               </Link>
-           
             </div>
             <div className={styles.productCont_wrapper}>
               <h4>{productName}</h4>
@@ -36,7 +36,7 @@ const ProductsList = ({ products, addProductToCart }) => {
               </p>
               <button
                 onClick={() => addProductToCart(productId)}
-                className={styles.productContBtn}
+                className={styles.btn_basicGreenHover}
               >
                 Add to cart
               </button>

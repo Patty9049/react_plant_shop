@@ -1,14 +1,8 @@
 import { actionsTypes } from "../actions/actionsTypes";
-import { products, homeView } from "../localData/products";
+import { products } from "../localData/products";
 
 const initialState = {
   products: [...products],
-  //TODO: wrzucic to do statycznej daty
-  views: {
-    home: {
-      imgSrc: homeView.imgSrc,
-    },
-  },
   cart: [],
   isCartOpen: false,
   cartTotal: 0,

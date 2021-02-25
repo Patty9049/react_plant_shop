@@ -4,12 +4,45 @@
   padding: 10px 20px;
   font-family: Montserrat, serif;
   border: solid 2px rgb(255, 255, 255);
+
+  h2 {
+    opacity: 0;
+    position: relative;
+    top: -100px;
+    left: 40px;
+    z-index: 4;
+    color:rgb(255, 255, 255);
+    font-size: xx-large;
+    font-weight: 900;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // &:hover {
+
+  //   img{
+  //     opacity: 0.6;
+  //     transform: scale(1.05);
+  //   }
+  //    h2 {
+  //      opacity: 1;
+  //    }
+  // }
 }
 
 .productImg__wrapper {
-  display: flex;
-  justify-content: center;
-  border-radius: 20%;
+  &:hover {
+
+    img{
+      opacity: 0.6;
+      transform: scale(1.05);
+    }
+     h2 {
+       opacity: 1;
+     }
+  }
 }
 
 .product__img {
@@ -18,6 +51,11 @@
   border-radius: 5%;
   object-fit: cover;
   opacity: 0.9;
+
+  // &:hover {
+  //   opacity: 0.5;
+  //   transform: scale(1.1);
+  // }
 }
 
 .productCont_wrapper {
@@ -25,9 +63,14 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  align-items: center;
+
+  &:hover{
+    opacity: 0.9;
+  }
 }
 
-.productContBtn {
+.btn_basicGreenHover {
 
   @include btn;
   margin-bottom: 25px;
@@ -43,7 +86,7 @@
 
     @include hover;
   }
-  
+
   &:active {
     opacity: 1;
     box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
@@ -51,3 +94,17 @@
     color: #79e3b6;
   }
 }
+
+// .img_hoverNote {
+//   position: relative;
+//   top: -100px;
+//   left: 40px;
+//   z-index: 4;
+//   color:rgb(255, 255, 255);
+//   font-size: xx-large;
+//   font-weight: 900;
+// }
+
+// a {
+//   text-decoration: none;
+// }

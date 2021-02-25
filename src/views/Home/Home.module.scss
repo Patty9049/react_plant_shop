@@ -1,7 +1,6 @@
 @import "../../styles/mixins.module.scss";
 
 .homeImg {
-
   @include basicimg;
   height: 60vh;
 }

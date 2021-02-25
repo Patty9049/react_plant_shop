@@ -1,8 +1,7 @@
 import React from "react";
 import { Grid , Row } from 'react-flexbox-grid';
-import { connect } from "react-redux";
 import styles from "./Home.module.scss";
-
+import { homeView } from "../../localData/products"
 
 const Home = (props) => {
   return (
@@ -10,7 +9,7 @@ const Home = (props) => {
       <h2 className={styles.menuSubtitle}>Home</h2>
       <Row >
         <div>
-          <img className={styles.homeImg} src={props.home.imgSrc} alt="houseplants"/>
+          <img className={styles.homeImg} src={homeView.imgSrc} alt="houseplants"/>
         </div>
       </Row>
       <Row>
@@ -21,8 +20,4 @@ const Home = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  home: state.views.home,
-});
-
-export default  connect(mapStateToProps)(Home);
+export default Home;
