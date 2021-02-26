@@ -34,13 +34,16 @@ const reducer = (state = initialState, action) => {
         cart: [...state.cart, productToAdd],
       };
 
-
-      case actionsTypes.DELETE_PRODUCT_FROM_CART:
+    case actionsTypes.DELETE_PRODUCT_FROM_CART:
       return {
         ...state,
-        cart: state.cart.filter((product) => product.productId !== payload)
-
-      }
+        cart: state.cart.filter((product) => product.productId !== payload),
+      };
+    case actionsTypes.CALCULATE_CART_TOTAL:
+      return {
+        ...state,
+        cartTotal: payload,
+      };
     default:
       return state;
   }

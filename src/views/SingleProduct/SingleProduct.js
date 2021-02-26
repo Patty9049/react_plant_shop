@@ -1,10 +1,15 @@
 import React from "react";
+import { Grid, Col } from "react-flexbox-grid";
 
 const SingleProduct = () => {
   return (
-    <div>
+    <Grid>
       <h2>Single product</h2>
-    </div>
+      <Col>
+        <img src="" alt="" />
+      </Col>
+      <Col></Col>
+    </Grid>
   );
 };
 

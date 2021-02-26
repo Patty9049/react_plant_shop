@@ -7,7 +7,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
 import { setCartClose, deleteProductFromCart } from "../../actions";
-import { Divider } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -28,7 +28,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Cart = ({ isCartOpen, setCartClose, cart, deleteProductFromCart }) => {
+const Cart = ({
+  isCartOpen,
+  setCartClose,
+  cart,
+  deleteProductFromCart,
+  cartTotal,
+}) => {
   const classes = useStyles();
 
   return (
@@ -85,6 +91,10 @@ const Cart = ({ isCartOpen, setCartClose, cart, deleteProductFromCart }) => {
               );
             })}
           </ul>
+          <Col className={styles.cartTotal}>
+            <Link>order details</Link>
+            <h2>total price {cartTotal}</h2>
+          </Col>
         </div>
       </Fade>
     </Modal>
@@ -94,6 +104,7 @@ const Cart = ({ isCartOpen, setCartClose, cart, deleteProductFromCart }) => {
 const mapStateToProps = (state) => ({
   isCartOpen: state.isCartOpen,
   cart: state.cart,
+  cartTotal: state.cartTotal,
 });
 
 const mapDispatchToProps = (dispatch) => ({

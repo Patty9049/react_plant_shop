@@ -29,6 +29,7 @@
     @include hover;
     height: auto;
     font-weight: 900;
+    background-color: #dffdeb;
   }
 }
 .cartCol1 {
@@ -41,4 +42,25 @@
   display: flex;
   justify-content: space-around;
   height: 40px;
+}
+
+.cartTotal {
+  justify-content: center;
+  text-align: center;
+
+  a {
+    margin: 12px;
+    padding: 12px;
+    border-radius: 32%;
+    color: #3cbd72;
+    font-size: large;
+    font-weight: 900;
+
+    &:hover {
+      @include hover;
+      height: auto;
+      font-weight: 900;
+      background-color: #dffdeb;
+    }
+  }
 }

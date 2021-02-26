@@ -17,3 +17,8 @@ export const deleteProductFromCart = (productId) => ({
   type: actionsTypes.DELETE_PRODUCT_FROM_CART,
   payload: productId,
 });
+
+export const calculateCartTotal = (total) => ({
+  type: actionsTypes.CALCULATE_CART_TOTAL,
+  payload: total,
+});
