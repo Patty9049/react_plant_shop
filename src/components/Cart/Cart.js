@@ -1,10 +1,13 @@
 import React from "react";
+import { Row, Col } from "react-flexbox-grid";
+import styles from "./Cart.module.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
 import { setCartClose, deleteProductFromCart } from "../../actions";
+import { Divider } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -19,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     outline: "none",
     height: "80vh",
-    width: "40vw",
+    width: "70vw",
     borderRadius: "15px",
     overflow: "auto",
   },
@@ -56,19 +59,29 @@ const Cart = ({ isCartOpen, setCartClose, cart, deleteProductFromCart }) => {
                 productImage,
               } = product;
               return (
-                <li key={productId}>
-                  <img
-                    style={{ width: "70px", height: "70px" }}
-                    src={productImage}
-                    alt={productName}
-                  />
-                  <h5>{productName}</h5>
-                  <button>-</button>
-                  <h5>{productQuantity}</h5>
-                  <button>+</button>
-                  <h5>{productPrice}$</h5>
-                  <button onClick={()=> deleteProductFromCart(productId)}>x</button>
-                </li>
+                <Row className={styles.cartProd} key={productId}>
+                  <Col xs={12} sm={6} md={6} className={styles.cartCol1}>
+                    <img
+                      className={styles.cartProd_img}
+                      style={{ width: "70px", height: "70px" }}
+                      src={productImage}
+                      alt={productName}
+                    />
+                    <h5 style={{ margin: "15px" }}>{productName}</h5>
+                  </Col>
+                  <Col xs={12} sm={6} md={6} className={styles.cartCol2}>
+                    <button className={styles.cartProd_btn}>-</button>
+                    <h5>{productQuantity}</h5>
+                    <button className={styles.cartProd_btn}>+</button>
+                    <h5>{productPrice}$</h5>
+                    <button
+                      className={styles.cartProd_btn}
+                      onClick={() => deleteProductFromCart(productId)}
+                    >
+                      x
+                    </button>
+                  </Col>
+                </Row>
               );
             })}
           </ul>
@@ -85,7 +98,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setCartClose: () => dispatch(setCartClose()),
-  deleteProductFromCart: (productId) => dispatch(deleteProductFromCart(productId)),
+  deleteProductFromCart: (productId) =>
+    dispatch(deleteProductFromCart(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

@@ -1,5 +1,10 @@
 @import "../../styles/mixins.module.scss";
 
+.subpageImg {
+  @include basicimg;
+  height: 60vh;
+}
+
 .menuSubtitle {
   @include subtitle;
 }
