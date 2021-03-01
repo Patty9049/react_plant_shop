@@ -5,11 +5,19 @@ import styles from "./ProductsList.module.scss";
 import { addProductToCart } from "../../actions";
 import { Link } from "react-router-dom";
 
-const ProductsList = ({ products, addProductToCart }) => {
+const ProductsList = ({ products, addProductToCart, cart }) => {
+  const handleAdd = (productId) => {
+    if (cart.find((product) => product.productId === productId)) {
+      // addQantity(productId);
+    } else {
+      addProductToCart(productId);
+    }
+  };
   return (
     <Row>
       {products.map((el) => {
         const { productId, productImage, productName, productPrice } = el;
+
         return (
           <Col
             key={productId}
@@ -25,7 +33,7 @@ const ProductsList = ({ products, addProductToCart }) => {
                   alt={productName}
                   className={styles.product__img}
                 />
-                <h2  className={styles.img_hoverNote}>read more</h2>
+                <h2 className={styles.img_hoverNote}>read more</h2>
               </Link>
             </div>
             <div className={styles.productCont_wrapper}>
@@ -35,7 +43,7 @@ const ProductsList = ({ products, addProductToCart }) => {
                 <span>$</span>
               </p>
               <button
-                onClick={() => addProductToCart(productId)}
+                onClick={() => handleAdd(productId)}
                 className={styles.btn_basicGreenHover}
               >
                 Add to cart
@@ -50,6 +58,7 @@ const ProductsList = ({ products, addProductToCart }) => {
 
 const mapStateToProps = (state) => ({
   products: state.products,
+  cart: state.cart,
 });
 
 const mapDispatchToProps = (dispatch) => ({

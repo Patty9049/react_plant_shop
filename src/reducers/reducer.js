@@ -1,6 +1,8 @@
 import { actionsTypes } from "../actions/actionsTypes";
 import { products } from "../localData/products";
 
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+
 const initialState = {
   products: [...products],
   cart: [],
@@ -31,7 +33,7 @@ const reducer = (state = initialState, action) => {
 
       return {
         ...state,
-        cart: [...state.cart, productToAdd],
+        cart: [...state.cart, deepCopy(productToAdd)],
       };
 
     case actionsTypes.DELETE_PRODUCT_FROM_CART:
