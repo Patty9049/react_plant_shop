@@ -6,7 +6,12 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import { connect } from "react-redux";
-import { setCartClose, deleteProductFromCart } from "../../actions";
+import {
+  setCartClose,
+  deleteProductFromCart,
+  addQuantityToCart,
+  deleteQuantityToCart,
+} from "../../actions";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +39,8 @@ const Cart = ({
   cart,
   deleteProductFromCart,
   cartTotal,
+  addQuantityToCart,
+  deleteQuantityToCart,
 }) => {
   const classes = useStyles();
 
@@ -76,9 +83,20 @@ const Cart = ({
                     <h5 style={{ margin: "15px" }}>{productName}</h5>
                   </Col>
                   <Col xs={12} sm={6} md={6} className={styles.cartCol2}>
-                    <button className={styles.cartProd_btn}>-</button>
+                    <button
+                      className={styles.cartProd_btn}
+                      onClick={() => deleteQuantityToCart(productId)}
+                      disabled={productQuantity === 1 ? true : false}
+                    >
+                      -
+                    </button>
                     <h5>{productQuantity}</h5>
-                    <button className={styles.cartProd_btn}>+</button>
+                    <button
+                      className={styles.cartProd_btn}
+                      onClick={() => addQuantityToCart(productId)}
+                    >
+                      +
+                    </button>
                     <h5>{productPrice}$</h5>
                     <button
                       className={styles.cartProd_btn}
@@ -92,8 +110,14 @@ const Cart = ({
             })}
           </ul>
           <Col className={styles.cartTotal}>
-            <Link>order details</Link>
-            <h2>total price {cartTotal}</h2>
+            {cartTotal === 0 ? (
+              <p>Your cart is empty</p>
+            ) : (
+              <>
+                <Link>order details</Link>
+                <h2>total price {cartTotal}</h2>
+              </>
+            )}
           </Col>
         </div>
       </Fade>
@@ -111,6 +135,9 @@ const mapDispatchToProps = (dispatch) => ({
   setCartClose: () => dispatch(setCartClose()),
   deleteProductFromCart: (productId) =>
     dispatch(deleteProductFromCart(productId)),
+  addQuantityToCart: (productId) => dispatch(addQuantityToCart(productId)),
+  deleteQuantityToCart: (productId) =>
+    dispatch(deleteQuantityToCart(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

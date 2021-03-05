@@ -13,6 +13,16 @@ export const addProductToCart = (productId) => ({
   payload: productId,
 });
 
+export const addQuantityToCart = (productId) => ({
+  type: actionsTypes.ADD_QUANTITY_TO_CART,
+  payload: productId,
+});
+
+export const deleteQuantityToCart = (productId) => ({
+  type: actionsTypes.DELETE_QUANTITY_TO_CART,
+  payload: productId,
+});
+
 export const deleteProductFromCart = (productId) => ({
   type: actionsTypes.DELETE_PRODUCT_FROM_CART,
   payload: productId,
@@ -21,4 +31,9 @@ export const deleteProductFromCart = (productId) => ({
 export const calculateCartTotal = (total) => ({
   type: actionsTypes.CALCULATE_CART_TOTAL,
   payload: total,
+});
+
+export const openSingleProduct = (productId) => ({
+  type: actionsTypes.OPEN_SINGLE_PRODUCT,
+  payload: productId,
 });

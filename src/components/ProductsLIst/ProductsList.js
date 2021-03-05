@@ -2,21 +2,32 @@ import React from "react";
 import { connect } from "react-redux";
 import { Row, Col } from "react-flexbox-grid";
 import styles from "./ProductsList.module.scss";
-import { addProductToCart } from "../../actions";
+import {
+  addProductToCart,
+  addQuantityToCart,
+  openSingleProduct,
+} from "../../actions";
 import { Link } from "react-router-dom";
 
-const ProductsList = ({ products, addProductToCart, cart }) => {
+const ProductsList = ({
+  products,
+  addProductToCart,
+  addQuantityToCart,
+  deleteQuantityToCart,
+  cart,
+}) => {
   const handleAdd = (productId) => {
     if (cart.find((product) => product.productId === productId)) {
-      // addQantity(productId);
+      addQuantityToCart(productId);
     } else {
       addProductToCart(productId);
     }
   };
   return (
     <Row>
-      {products.map((el) => {
-        const { productId, productImage, productName, productPrice } = el;
+      {products.map((product) => {
+        const { productId, productImage, productName, productPrice } = product;
+        console.log("PRODUCT", product);
 
         return (
           <Col
@@ -27,11 +38,17 @@ const ProductsList = ({ products, addProductToCart, cart }) => {
             className={styles.colprod_wrapper}
           >
             <div className={styles.productImg__wrapper}>
-              <Link to={`/product/${productName}`}>
+              <Link
+                to={{
+                  pathname: `/product/${productName}`,
+                  state: { ...product },
+                }}
+              >
                 <img
                   src={productImage}
                   alt={productName}
                   className={styles.product__img}
+                  onClick={openSingleProduct(productId)}
                 />
                 <h2 className={styles.img_hoverNote}>read more</h2>
               </Link>
@@ -63,6 +80,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addProductToCart: (productId) => dispatch(addProductToCart(productId)),
+  addQuantityToCart: (productId) => dispatch(addQuantityToCart(productId)),
+  openSingleProduct: (productId) => dispatch(openSingleProduct(productId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductsList);
