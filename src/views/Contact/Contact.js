@@ -37,7 +37,7 @@ const Contact = () => {
         </Col>
       </Row>
       <Row>
-        <p>If you have any questions, write to us!</p>
+        <h3>If you have any questions, write to us!</h3>
       </Row>
       <Col className={styles.form} xs={12} sm={4} md={4}>
         <input type="text" placeholder="name" />
