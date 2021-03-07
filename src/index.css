@@ -1,11 +1,11 @@
+/* global
+$mgreencolor: rgb(142, 219, 70); */
 
 * {
-  margin: 0;
-  padding: 0;
+  padding: 2px;
   box-sizing: border-box;
   font-family: Montserrat, serif;
 }
-
 
 button {
   cursor: pointer;
@@ -13,4 +13,7 @@ button {
 
 ul {
   list-style: none;
+}
+p {
+  margin: 0 15px;
 }

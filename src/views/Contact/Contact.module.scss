@@ -6,5 +6,15 @@
 
 .form {
   margin-top: 20px;
-  justify-content: center;
+  border-radius: 5px;
+  background-color: #3cbd72;
+}
+input {
+  margin-top: 5px;
+  width: 100%;
+}
+
+textarea {
+  margin-top: 5px;
+  width: 100%;
 }

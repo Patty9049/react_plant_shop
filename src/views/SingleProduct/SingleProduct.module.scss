@@ -1,10 +1,47 @@
+@import "../../styles//mixins.module.scss";
+
 .singleProduct__img {
   width: 100%;
-  height: 300px;
+  height: 380px;
   border-radius: 5%;
   object-fit: cover;
   opacity: 0.9;
 }
-// p {
-//   margin: 5px;
-// }
+div.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.iconSP {
+  margin-left: 4px;
+  color: rgb(142, 219, 70);
+}
+
+span {
+  margin-left: 15px;
+}
+
+.btn_basicGreenHover {
+  @include btn;
+  margin-bottom: 25px;
+  border-radius: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  font-weight: normal;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #313131;
+
+  &:hover {
+    @include hover;
+    height: 10%;
+  }
+
+  &:active {
+    opacity: 1;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+      inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+    color: #79e3b6;
+  }
+}

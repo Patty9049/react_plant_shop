@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^12.6.3",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
+    "google-maps": "^4.3.3",
     "node-sass": "^5.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

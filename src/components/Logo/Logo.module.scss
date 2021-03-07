@@ -7,11 +7,9 @@
   text-align: center;
 
   &:hover {
-    // @include hover;
-    // text-shadow: none;
     height: 20%;
     opacity: 0.6;
-    color: #3cbd72;
+    color: $main-green;
     font-weight: bold;
   }
 }

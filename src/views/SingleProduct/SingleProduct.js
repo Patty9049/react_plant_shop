@@ -1,6 +1,9 @@
 import React from "react";
 import styles from "./SingleProduct.module.scss";
 import { Grid, Row, Col } from "react-flexbox-grid";
+// import { Button } from "@material-ui/core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRuler, faStar, faTruck } from "@fortawesome/free-solid-svg-icons";
 
 const SingleProduct = (props) => {
   console.log("SINGLEPRODUCT", props);
@@ -23,18 +26,52 @@ const SingleProduct = (props) => {
         <Col xs={12} sm={8} md={8}>
           <h2>NAME</h2>
           <Row>
-            <p>STARS</p>
+            <p>
+              STARS
+              <span>
+                <FontAwesomeIcon className={styles.iconSP} icon={faStar} />
+                <FontAwesomeIcon className={styles.iconSP} icon={faStar} />
+                <FontAwesomeIcon className={styles.iconSP} icon={faStar} />
+                <FontAwesomeIcon className={styles.iconSP} icon={faStar} />
+              </span>
+            </p>
             <p>PRICE</p>
+            <p>$</p>
           </Row>
           <Row>
-            <p>SHIPPING</p>
-            <p>OPTIONS</p>
+            <p>
+              SHIPPING
+              <span>
+                <FontAwesomeIcon className={styles.iconSP} icon={faTruck} />
+              </span>
+            </p>
+            <label for="cars">OPTIONS:</label>
+            <select id="options" name="options">
+              <option value="option">option1</option>
+              <option value="option">option2</option>
+              <option value="option">option3</option>
+            </select>
           </Row>
           <Row>
-            <p>SIZE</p>
-            <p>SIZE GIUDE</p>
+            <p>
+              SIZE
+              <span>
+                <FontAwesomeIcon className={styles.iconSP} icon={faRuler} />
+              </span>
+            </p>
+            <label for="cars">SIZES:</label>
+            <select id="options" name="options">
+              <option value="size">size1</option>
+              <option value="size">size2</option>
+              <option value="size">size3</option>
+            </select>
           </Row>
-          <Row>BUTTON-addToCart</Row>
+          <button
+            //TODO: onClick={() => handleAdd(productId)}
+            className={styles.btn_basicGreenHover}
+          >
+            Add to cart
+          </button>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam
             eum, ducimus aliquam inventore sit odio voluptate, neque, voluptatum
@@ -42,9 +79,14 @@ const SingleProduct = (props) => {
             reprehenderit, voluptate dicta, unde nostrum odio, ut architecto
             ullam itaque fugiat perspiciatis?
           </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ullam
+            eum, ducimus aliquam inventore sit odio voluptate, neque, voluptatum
+            provident in quis.
+          </p>
         </Col>
       </Row>
-      <p>RECOMMANDED PRODUCTS</p>
+      <h2>RECOMMANDED PRODUCTS</h2>
       <Row>
         <Col xs={12} sm={4} md={4}>
           <img
