@@ -24,6 +24,7 @@ const SingleProduct = (props) => {
       addProductToCart(productId);
     }
   };
+
   let recomandedProducts = [];
 
   if (recomandedProducts.lenght < 3) {
