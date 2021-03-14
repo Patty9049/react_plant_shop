@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Router from "../routing/Router";
 import { connect } from "react-redux";
-import { calculateCartTotal } from "../actions";
+import { calculateCartTotal, filteredProductsByName } from "../actions";
 
 class App extends Component {
   calculateCartTotal = () => {
@@ -18,6 +18,10 @@ class App extends Component {
     if (prevProps.cart !== this.props.cart) {
       this.calculateCartTotal();
     }
+
+    if (prevProps.searchPhrase !== this.props.searchPhrase) {
+      this.props.filteredProductsByName();
+    }
   }
 
   render() {
@@ -31,10 +35,12 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   cart: state.cart,
+  searchPhrase: state.searchPhrase,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   calculateCartTotalAction: (total) => dispatch(calculateCartTotal(total)),
+  filteredProductsByName: () => dispatch(filteredProductsByName()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,12 +1,13 @@
 import { actionsTypes } from "../actions/actionsTypes";
-import { products } from "../localData/products";
+import { productsLocalData } from "../localData/products";
 
 const initialState = {
-  products: [...products],
+  products: [...productsLocalData],
   cart: [],
   isCartOpen: false,
   cartTotal: 0,
   singleProductId: 0,
+  searchPhrase: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,7 +27,7 @@ const reducer = (state = initialState, action) => {
       };
 
     case actionsTypes.ADD_PRODUCT_TO_CART:
-      const productToAdd = products.find(
+      const productToAdd = productsLocalData.find(
         (product) => product.productId === payload
       );
 
@@ -83,6 +84,32 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         singleProductId: payload,
+      };
+
+    case actionsTypes.ADD_SEARCHPHRASE:
+      return {
+        ...state,
+        searchPhrase: payload,
+      };
+
+    case actionsTypes.FILTER_PRODUCTS_BY_NAME:
+      let filteredProducts = [...productsLocalData];
+
+      if (state.searchPhrase.length !== 0) {
+        filteredProducts = productsLocalData.filter((product) => {
+          const lowerCaseProductName = product.productName.toLowerCase();
+          const inputValueLowerCase = state.searchPhrase.toLowerCase();
+
+          return (
+            inputValueLowerCase ===
+            lowerCaseProductName.slice(0, inputValueLowerCase.length)
+          );
+        });
+      }
+
+      return {
+        ...state,
+        products: [...filteredProducts],
       };
 
     default:

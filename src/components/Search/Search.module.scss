@@ -1,0 +1,23 @@
+@import "../../styles/mixins.module.scss";
+
+.cart__btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  // margin: 20px;
+  background-color: white;
+  border: none;
+  outline: none;
+  font-size: large;
+  color: rgb(59, 59, 59);
+
+  &:hover {
+    color: $main-green;
+    font-weight: bold;
+  }
+}
+
+.icon {
+  margin-top: 6px;
+  margin-left: 6px;
+}

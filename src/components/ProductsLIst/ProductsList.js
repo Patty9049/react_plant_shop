@@ -27,8 +27,6 @@ const ProductsList = ({
     <Row>
       {products.map((product) => {
         const { productId, productImage, productName, productPrice } = product;
-        console.log("PRODUCT", product);
-
         return (
           <Col
             key={productId}

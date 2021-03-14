@@ -2,18 +2,24 @@
 
 .logo {
   margin: 20px;
-  color: rgb(59, 59, 59);
-  // justify-content: center;
-  // text-align: center;
+  color: rgb(88, 52, 52);
   justify-content: space-between;
+  a :hover {
+    background-color: none;
+    box-shadow: none;
+    color: rgb(88, 52, 52);
+  }
+}
+a :hover {
+  background-color: none;
+  box-shadow: none;
+  color: rgb(88, 52, 52);
 }
 
 h2 {
   margin: 5px;
 
   &:hover {
-    height: 20%;
-    opacity: 0.6;
     color: $main-green;
     font-weight: bold;
   }
@@ -21,8 +27,8 @@ h2 {
 
 .cart__btn {
   display: flex;
-  justify-content: end;
-  margin: 20px;
+  justify-content: space-around;
+  align-items: center;
   background-color: white;
   border: none;
   outline: none;
@@ -33,4 +39,13 @@ h2 {
     color: $main-green;
     font-weight: bold;
   }
+}
+
+.icon {
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.row {
+  margin: 0 15px;
 }

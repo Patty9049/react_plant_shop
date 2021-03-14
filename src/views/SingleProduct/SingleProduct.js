@@ -1,15 +1,36 @@
 import React from "react";
 import styles from "./SingleProduct.module.scss";
+import { connect } from "react-redux";
+import { addProductToCart, addQuantityToCart } from "../../actions";
 import { Grid, Row, Col } from "react-flexbox-grid";
-// import { Button } from "@material-ui/core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRuler, faStar, faTruck } from "@fortawesome/free-solid-svg-icons";
 
 const SingleProduct = (props) => {
   console.log("SINGLEPRODUCT", props);
-  // const { productName, productImage } = props.location.state;
+  const {
+    productName,
+    productImage,
+    productPrice,
+    productId,
+  } = props.location.state;
+  const { cart, products, addProductToCart, addQuantityToCart } = props;
   // console.log("NAME", productName);
   // console.log("IMAGE", productImage);
+  const handleAdd = (productId) => {
+    if (cart.find((product) => product.productId === productId)) {
+      addQuantityToCart(productId);
+    } else {
+      addProductToCart(productId);
+    }
+  };
+  let recomandedProducts = [];
+
+  if (recomandedProducts.lenght < 3) {
+    products.filter((product) => recomandedProducts.push(product));
+  }
+
+  console.log("RECOMANDEDPRODUCTS", recomandedProducts);
 
   return (
     <Grid>
@@ -17,14 +38,12 @@ const SingleProduct = (props) => {
         <Col xs={12} sm={4} md={4}>
           <img
             className={styles.singleProduct__img}
-            src={
-              "https://images.unsplash.com/photo-1569171181682-2c689e08141d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=967&q=80"
-            }
-            alt={"TREE"}
+            src={productImage}
+            alt={productName}
           />
         </Col>
         <Col xs={12} sm={8} md={8}>
-          <h2>NAME</h2>
+          <h2>{productName}</h2>
           <Row>
             <p>
               STARS
@@ -36,6 +55,7 @@ const SingleProduct = (props) => {
               </span>
             </p>
             <p>PRICE</p>
+            <span>{productPrice}</span>
             <p>$</p>
           </Row>
           <Row>
@@ -67,7 +87,7 @@ const SingleProduct = (props) => {
             </select>
           </Row>
           <button
-            //TODO: onClick={() => handleAdd(productId)}
+            onClick={() => handleAdd(productId)}
             className={styles.btn_basicGreenHover}
           >
             Add to cart
@@ -120,4 +140,14 @@ const SingleProduct = (props) => {
   );
 };
 
-export default SingleProduct;
+const mapStateToProps = (state) => ({
+  cart: state.cart,
+  products: state.products,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  addProductToCart: (productId) => dispatch(addProductToCart(productId)),
+  addQuantityToCart: (productId) => dispatch(addQuantityToCart(productId)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);

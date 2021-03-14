@@ -37,3 +37,12 @@ export const openSingleProduct = (productId) => ({
   type: actionsTypes.OPEN_SINGLE_PRODUCT,
   payload: productId,
 });
+
+export const addSearhPhrase = (currentValue) => ({
+  type: actionsTypes.ADD_SEARCHPHRASE,
+  payload: currentValue,
+});
+
+export const filteredProductsByName = () => ({
+  type: actionsTypes.FILTER_PRODUCTS_BY_NAME,
+});
