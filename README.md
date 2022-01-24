@@ -1,4 +1,4 @@
-# Todo App
+# React Plant Shop
 
 A simple shop with plants.
 
